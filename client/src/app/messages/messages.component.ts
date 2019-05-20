@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../chat.service';
 import { Message } from '../model/message-model';
 import { tap, map, filter } from 'rxjs/operators';
+import { emoji } from './emoji.operator';
 
 @Component({
   selector: 'app-messages',
@@ -20,10 +21,7 @@ export class MessagesComponent implements OnInit {
     chatService.message$.pipe(
       tap(m => console.log(m)),
       filter(m => (!m.text.startsWith('spam')) || m.senderId === chatService.userId ),
-      map(m => {
-        m.text = m.text.replace(':)', '😀');
-        return m;
-      })
+      emoji()
     )
     .subscribe((m: Message) => {
       console.log(m);
