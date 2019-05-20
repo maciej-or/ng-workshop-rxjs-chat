@@ -17,6 +17,8 @@ export class MessagesComponent implements OnInit {
     const { chatService } = this;
 
     chatService.message$.subscribe((m: Message) => {
+      console.log(m);
+      this.messages.push(m);
     });
   }
 

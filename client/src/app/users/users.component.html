@@ -1,5 +1,9 @@
-<div>
-  <h4>room users</h4>
+<div *ngIf="(users$ | async) as users">
+  <h4>room users [{{users.length}}]</h4>
   <ul class="users">
+    <li *ngFor="let u of users">
+      <span class="presence {{u.presence.state}}"></span>
+      {{u.name}}
+    </li>
   </ul>
 </div>
