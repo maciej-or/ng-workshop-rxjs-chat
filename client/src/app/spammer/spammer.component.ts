@@ -13,6 +13,8 @@ export class SpammerComponent implements OnInit {
 
   isConnected = false;
 
+  intervalSubscription: Subscription;
+
   constructor(private chatService: ChatService) { }
 
   ngOnInit() {
@@ -23,9 +25,14 @@ export class SpammerComponent implements OnInit {
 
   start() {
     this.isWorking = true;
+    this.intervalSubscription = interval(1000).subscribe(x => {
+      console.log(x);
+      this.chatService.sendMessage(`spam ${x}`);
+    });
   }
 
   stop() {
+    this.intervalSubscription.unsubscribe();
     this.isWorking = false;
   }
 }
