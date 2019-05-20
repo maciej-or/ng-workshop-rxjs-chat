@@ -1,0 +1,5 @@
+<h4>spammer</h4>
+<p>
+  <button mat-raised-button color="primary" (click)="start()" [disabled]="isWorking || !isConnected">start</button>
+  <button mat-raised-button (click)="stop()" [disabled]="!isWorking">stop</button>
+</p>

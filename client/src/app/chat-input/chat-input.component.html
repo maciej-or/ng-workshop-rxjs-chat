@@ -1,0 +1,8 @@
+<form autocomplete="off" (ngSubmit)="sendMessage()">
+  <mat-form-field>
+    <input #chatInput matInput placeholder="type message here" name="message" [(ngModel)]="message" [disabled]="!isConnected">
+  </mat-form-field>
+  <button type="submit" mat-raised-button mat-icon-button color="primary" [disabled]="!isConnected">
+    <mat-icon>send</mat-icon>
+  </button>
+</form>

@@ -1,0 +1,7 @@
+<ul class="messages" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+  <li class="bubble" *ngFor="let m of messages">
+    <span class="sender">{{m.senderId}}</span>
+    <span class="time">{{m.createdAt | date:'mediumTime'}}</span>
+    <span class="text">{{m.text}}</span>
+  </li>
+</ul>

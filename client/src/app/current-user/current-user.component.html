@@ -1,0 +1,7 @@
+<form (ngSubmit)="addUser()">
+  <mat-form-field>
+    <input matInput placeholder="your nick" type="text" [(ngModel)]="username" name="username" [disabled]="connectionState > 0" required>
+    <mat-hint [ngClass]="{error: connectionError}">{{connectionDescription}}</mat-hint>
+  </mat-form-field>
+  <mat-spinner *ngIf="connectionState === 1" [diameter]="20"></mat-spinner>
+</form>

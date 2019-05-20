@@ -1,0 +1,25 @@
+.messages {
+  list-style-type: none;
+  overflow-y: scroll;
+  height: 80vh;
+  width: 100%;
+
+  .bubble {
+    margin-bottom: 10px;
+
+    .sender {
+      font-weight: bold;
+      color: gray;
+    }
+
+    .time {
+      font-weight: 300;
+      font-size: small;
+      margin-left: 5px;
+    }
+
+    .text {
+      display: block;
+    }
+  }
+}
